@@ -11,8 +11,17 @@ def plot_distribution(data):
     data (array-like): An array of categorical data items.
     """
     
-    fig, _ = plt.subplots()
-    pass
+    data_count = collections.Counter(data)
+    categories = list(data_count.keys())
+    counts = list(data_count.values())
+
+    fig, ax = plt.subplots()
+    ax.bar(categories, counts)
+
+    ax.set_xlabel('Category')
+    ax.set_ylabel('Count')
+    ax.set_title('Category Distribution')
+
     return fig
 
 
